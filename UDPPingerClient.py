@@ -1,7 +1,7 @@
 import socket
 import time
 
-SERVER_NAME = "192.168.1.183"
+SERVER_NAME = "localhost"
 SERVER_PORT = 13000
 client_socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 client_socket.settimeout(1.0)
@@ -33,6 +33,8 @@ if packets_received > 0:
     print("---Statistics---")
     print(f"{NUM_PACKETS} packets sent, {packets_received} received, {lost_packets_percentage:.2f}% packet loss")
     print(f"Min RTT: {min(rtt_array):.3f}ms | Max RTT: {max(rtt_array):.3f}ms | Avg RTT: {avg_rtt:.3f}ms")
+else:
+    print("All packets were lost")
 
 
 
